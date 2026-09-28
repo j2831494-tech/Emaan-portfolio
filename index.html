@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pet Grooming Studio | Professional Pet Care</title>
+
+<style>
+:root{
+  --primary:#d9673c;
+  --primary-dark:#b94f29;
+  --cream:#fff8f3;
+  --cream2:#fdf0e8;
+  --dark:#241b18;
+  --text:#493d38;
+  --muted:#81746e;
+  --white:#ffffff;
+  --border:#eaded7;
+  --green:#2f9e6f;
+  --shadow:0 20px 60px rgba(67,42,30,.10);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(234,222,215,.8);
+}
+
+.nav-inner{
+  max-width:1250px;
+  margin:auto;
+  padding:17px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  background:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(217,103,60,.25);
+}
+
+.logo-text strong{
+  display:block;
+  font-size:18px;
+  color:var(--dark);
+}
+
+.logo-text span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.nav-links a{
+  font-size:14px;
+  font-weight:600;
+  color:#554943;
+}
+
+.nav-links a:hover{
+  color:var(--primary);
+}
+
+.nav-book{
+  padding:11px 19px;
+  background:var(--primary);
+  color:#fff !important;
+  border-radius:10px;
+}
+
+/* HERO */
+
+.hero{
+  background:
+    radial-gradient(circle at 80% 20%,rgba(217,103,60,.12),transparent 28%),
+    linear-gradient(135deg,#fffaf7,#fff0e8);
+  min-height:680px;
+  display:flex;
+  align-items:center;
+}
+
+.hero-inner{
+  width:min(1250px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:70px;
+  align-items:center;
+  padding:85px 0;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  border:1px solid var(--border);
+  padding:8px 13px;
+  border-radius:50px;
+  color:var(--primary);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:64px;
+  line-height:1.04;
+  letter-spacing:-2px;
+  color:var(--dark);
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  color:var(--primary);
+}
+
+.hero-description{
+  max-width:590px;
+  font-size:18px;
+  color:var(--muted);
+  margin-bottom:30px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  border:none;
+  cursor:pointer;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.primary-btn{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 10px 25px rgba(217,103,60,.22);
+}
+
+.primary-btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+}
+
+.secondary-btn{
+  background:#fff;
+  color:var(--dark);
+  border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.hero-visual{
+  min-height:440px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pet-card{
+  width:410px;
+  height:430px;
+  border-radius:38px;
+  background:linear-gradient(145deg,#e67b4d,#c9582f);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:180px;
+  box-shadow:0 35px 80px rgba(164,70,35,.24);
+  transform:rotate(2deg);
+}
+
+.float-card{
+  position:absolute;
+  background:#fff;
+  padding:15px 18px;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  font-size:13px;
+  font-weight:700;
+}
+
+.float-card.one{
+  top:35px;
+  left:5px;
+}
+
+.float-card.two{
+  bottom:35px;
+  right:5px;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:95px 20px;
+}
+
+.section-inner{
+  max-width:1180px;
+  margin:auto;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 50px;
+}
+
+.section-heading small{
+  color:var(--primary);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.section-heading h2{
+  font-size:42px;
+  color:var(--dark);
+  margin:10px 0;
+}
+
+.section-heading p{
+  color:var(--muted);
+}
+
+/* SERVICES */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.service-card{
+  padding:32px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  transition:.25s;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.service-icon{
+  width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:var(--cream2);
+  font-size:27px;
+  margin-bottom:20px;
+}
+
+.service-card h3{
+  color:var(--dark);
+  margin-bottom:8px;
+}
+
+.service-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* HOURS */
+
+.hours-section{
+  background:var(--dark);
+  color:white;
+}
+
+.hours-box{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.hours-card{
+  padding:32px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  background:rgba(255,255,255,.05);
+}
+
+.hours-card h3{
+  margin-bottom:18px;
+}
+
+.hours-row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:14px;
+}
+
+.closed{
+  color:#ff9a75;
+  font-weight:700;
+}
+
+/* BOOKING */
+
+.booking-section{
+  background:var(--cream);
+}
+
+.booking-layout{
+  max-width:1050px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:.75fr 1.25fr;
+  gap:30px;
+}
+
+.booking-info{
+  background:var(--dark);
+  color:white;
+  border-radius:25px;
+  padding:35px;
+}
+
+.booking-info h3{
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.booking-info p{
+  color:#cfc4be;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.contact-line{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:16px 0;
+  font-size:14px;
+}
+
+.booking-form{
+  background:#fff;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  font-size:12px;
+  font-weight:700;
+  color:#655851;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  background:#fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--primary);
+}
+
+.form-submit{
+  margin-top:20px;
+  width:100%;
+}
+
+/* AI AGENTS */
+
+.ai-section{
+  background:#fff;
+}
+
+.ai-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  max-width:900px;
+  margin:auto;
+}
+
+.ai-card{
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:35px;
+  background:linear-gradient(145deg,#fff,#fff7f2);
+  text-align:center;
+}
+
+.ai-card-icon{
+  width:75px;
+  height:75px;
+  border-radius:22px;
+  background:var(--primary);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 20px;
+  font-size:34px;
+}
+
+.ai-card h3{
+  color:var(--dark);
+  margin-bottom:8px;
+}
+
+.ai-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* DASHBOARD */
+
+.dashboard-section{
+  background:#f7f3f0;
+}
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.stat-card{
+  background:#fff;
+  border-radius:18px;
+  padding:23px;
+  border:1px solid var(--border);
+}
+
+.stat-card small{
+  color:var(--muted);
+}
+
+.stat-card strong{
+  display:block;
+  font-size:30px;
+  color:var(--primary);
+  margin-top:6px;
+}
+
+.dashboard-table{
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid #eee;
+  font-size:13px;
+}
+
+th{
+  color:var(--primary);
+}
+
+.status{
+  background:#e9f7f0;
+  color:var(--green);
+  padding:5px 10px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+  background:#1b1512;
+  color:#d8cfca;
+  padding:50px 20px 25px;
+}
+
+.footer-inner{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.footer-brand strong{
+  color:white;
+  font-size:20px;
+}
+
+.footer-brand p{
+  max-width:350px;
+  margin-top:8px;
+  font-size:13px;
+  color:#9e928c;
+}
+
+.footer-bottom{
+  max-width:1180px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:12px;
+  color:#82756f;
+}
+
+/* FLOATING AI */
+
+.ai-floating{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:900;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.ai-float-btn{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:none;
+  color:white;
+  cursor:pointer;
+  font-size:23px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+.chat-float{
+  background:#27201c;
+}
+
+.voice-float{
+  background:var(--primary);
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(20,14,11,.65);
+  backdrop-filter:blur(5px);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:min(480px,100%);
+  background:#fff;
+  border-radius:25px;
+  padding:30px;
+  position:relative;
+  box-shadow:0 30px 90px rgba(0,0,0,.3);
+}
+
+.modal-close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  border:none;
+  background:none;
+  font-size:25px;
+  cursor:pointer;
+  color:#777;
+}
+
+.modal-icon{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  background:var(--cream2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.modal-box h3{
+  color:var(--dark);
+  margin-bottom:8px;
+}
+
+.modal-box p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.agent-placeholder{
+  background:#f8f5f3;
+  border:1px dashed #d9c8bf;
+  border-radius:15px;
+  padding:25px;
+  text-align:center;
+  color:#777;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero-description{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .pet-card{
+    width:300px;
+    height:320px;
+    font-size:125px;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .hours-box,
+  .booking-layout,
+  .ai-cards{
+    grid-template-columns:1fr;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .nav-inner{
+    padding:13px 18px;
+  }
+
+  .logo-text strong{
+    font-size:15px;
+  }
+
+  .hero-inner{
+    padding:60px 0;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .section{
+    padding:70px 18px;
+  }
+
+  .section-heading h2{
+    font-size:34px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .float-card{
+    display:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+  <div class="nav-inner">
+
+    <a href="#home" class="logo">
+      <div class="logo-icon">🐾</div>
+
+      <div class="logo-text">
+        <strong>Pet Grooming Studio</strong>
+        <span>Professional Pet Care</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#hours">Hours</a>
+      <a href="#booking">Book</a>
+      <a href="#ai">AI Assistant</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#booking" class="nav-book">Book Now</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-inner">
+
+    <div>
+
+      <div class="badge">
+        🐾 Professional Pet Care
+      </div>
+
+      <h1>
+        Care They Love.<br>
+        <span>Grooming They Deserve.</span>
+      </h1>
+
+      <p class="hero-description">
+        Professional grooming and pet care services designed
+        to keep your furry companions healthy, comfortable
+        and looking their best.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#booking" class="primary-btn">
+          Book an Appointment
+        </a>
+
+        <button
+          class="secondary-btn"
+          onclick="openAgent('chat')">
+          💬 Chat with AI
+        </button>
+
+        <button
+          class="secondary-btn"
+          onclick="openAgent('voice')">
+          🎙️ Voice Assistant
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <div class="float-card one">
+        ⭐ Trusted Pet Care
+      </div>
+
+      <div class="pet-card">
+        🐶
+      </div>
+
+      <div class="float-card two">
+        🕐 Mon–Fri · 6 AM–10 PM
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+  <div class="section-heading">
+
+    <small>Our Services</small>
+
+    <h2>Professional Care For Every Pet</h2>
+
+    <p>
+      From everyday grooming to complete spa care,
+      we make every visit comfortable and stress-free.
+    </p>
+
+  </div>
+
+
+  <div class="section-inner services">
+
+    <div class="service-card">
+
+      <div class="service-icon">✂️</div>
+
+      <h3>Full Grooming</h3>
+
+      <p>
+        Complete grooming including haircut,
+        brushing, bath and finishing.
+      </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+      <div class="service-icon">🛁</div>
+
+      <h3>Bath & Spa</h3>
+
+      <p>
+        Gentle bathing and spa care for a
+        fresh, clean and healthy coat.
+      </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+      <div class="service-icon">🐾</div>
+
+      <h3>Nail & Paw Care</h3>
+
+      <p>
+        Professional nail trimming and paw
+        care for your pet's comfort.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOURS -->
+
+<section class="section hours-section" id="hours">
+
+  <div class="section-heading">
+
+    <small style="color:#ff9a75;">
+      Opening Hours
+    </small>
+
+    <h2 style="color:white;">
+      We're Here For Your Pets
+    </h2>
+
+    <p style="color:#bfb2ac;">
+      Our studio is open Monday through Friday.
+    </p>
+
+  </div>
+
+
+  <div class="hours-box">
+
+    <div class="hours-card">
+
+      <h3>🕐 Weekly Schedule</h3>
+
+      <div class="hours-row">
+        <span>Monday</span>
+        <strong>6:00 AM – 10:00 PM</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Tuesday</span>
+        <strong>6:00 AM – 10:00 PM</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Wednesday</span>
+        <strong>6:00 AM – 10:00 PM</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Thursday</span>
+        <strong>6:00 AM – 10:00 PM</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Friday</span>
+        <strong>6:00 AM – 10:00 PM</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Saturday</span>
+        <strong class="closed">Closed</strong>
+      </div>
+
+      <div class="hours-row">
+        <span>Sunday</span>
+        <strong class="closed">Closed</strong>
+      </div>
+
+    </div>
+
+
+    <div class="hours-card">
+
+      <h3>📞 Contact Us</h3>
+
+      <div class="contact-line">
+        <span>👩</span>
+        <span>Eman Fatima</span>
+      </div>
+
+      <div class="contact-line">
+        <span>📧</span>
+        <a href="mailto:emanfatima3664@gmail.com">
+          emanfatima3664@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-line">
+        <span>📱</span>
+        <a href="tel:03247779398">
+          03247779398
+        </a>
+      </div>
+
+      <p style="margin-top:22px;color:#bfb2ac;font-size:13px;">
+        For appointments and general enquiries,
+        contact us during business hours.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="section booking-section" id="booking">
+
+  <div class="section-heading">
+
+    <small>Appointments</small>
+
+    <h2>Book Your Pet's Visit</h2>
+
+    <p>
+      Fill in the details below and we'll take care
+      of the rest.
+    </p>
+
+  </div>
+
+
+  <div class="booking-layout">
+
+    <div class="booking-info">
+
+      <h3>Let's take care of your best friend. 🐾</h3>
+
+      <p>
+        Choose your preferred service, date and time.
+        Our team will confirm your appointment.
+      </p>
+
+      <div class="contact-line">
+        📧 emanfatima3664@gmail.com
+      </div>
+
+      <div class="contact-line">
+        📱 03247779398
+      </div>
+
+      <div class="contact-line">
+        🕐 Mon–Fri · 6 AM–10 PM
+      </div>
+
+      <div class="contact-line">
+        🚫 Sat–Sun · Closed
+      </div>
+
+    </div>
+
+
+    <div class="booking-form">
+
+      <form id="bookingForm">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Owner Name</label>
+            <input
+              id="ownerName"
+              type="text"
+              placeholder="Your name"
+              required>
+          </div>
+
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="03XXXXXXXXX"
+              required>
+          </div>
+
+
+          <div class="form-group">
+            <label>Pet Name</label>
+            <input
+              id="petName"
+              type="text"
+              placeholder="Your pet's name"
+              required>
+          </div>
+
+
+          <div class="form-group">
+            <label>Pet Type</label>
+
+            <select id="petType" required>
+              <option value="">Select</option>
+              <option>Dog</option>
+              <option>Cat</option>
+              <option>Other</option>
+            </select>
+
+          </div>
+
+
+          <div class="form-group full">
+            <label>Service</label>
+
+            <select id="service" required>
+
+              <option value="">
+                Select a service
+              </option>
+
+              <option>
+                Full Grooming
+              </option>
+
+              <option>
+                Bath & Spa
+              </option>
+
+              <option>
+                Nail & Paw Care
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+            <label>Preferred Date</label>
+
+            <input
+              id="date"
+              type="date"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+            <label>Preferred Time</label>
+
+            <select id="time" required>
+
+              <option value="">
+                Select time
+              </option>
+
+              <option>6:00 AM</option>
+              <option>7:00 AM</option>
+              <option>8:00 AM</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+              <option>5:00 PM</option>
+              <option>6:00 PM</option>
+              <option>7:00 PM</option>
+              <option>8:00 PM</option>
+              <option>9:00 PM</option>
+              <option>10:00 PM</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>Additional Notes</label>
+
+            <textarea
+              id="notes"
+              rows="3"
+              placeholder="Anything we should know about your pet?"></textarea>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="primary-btn form-submit">
+
+          Request Appointment
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AI AGENTS -->
+
+<section class="section ai-section" id="ai">
+
+  <div class="section-heading">
+
+    <small>AI Assistance</small>
+
+    <h2>Meet Your Pet Care Assistant</h2>
+
+    <p>
+      Get instant answers or talk naturally with
+      our AI assistant.
+    </p>
+
+  </div>
+
+
+  <div class="ai-cards">
+
+    <div class="ai-card">
+
+      <div class="ai-card-icon">
+        💬
+      </div>
+
+      <h3>AI Chat Assistant</h3>
+
+      <p>
+        Ask about services, opening hours,
+        appointments and pet care.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="openAgent('chat')">
+
+        Open Chat Agent
+
+      </button>
+
+    </div>
+
+
+    <div class="ai-card">
+
+      <div class="ai-card-icon">
+        🎙️
+      </div>
+
+      <h3>AI Voice Assistant</h3>
+
+      <p>
+        Talk naturally with our voice assistant
+        about services and appointments.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="openAgent('voice')">
+
+        Open Voice Agent
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section class="section dashboard-section" id="dashboard">
+
+  <div class="section-heading">
+
+    <small>Management</small>
+
+    <h2>Admin Dashboard</h2>
+
+    <p>
+      Appointment and customer management will
+      be connected to the backend automation.
+    </p>
+
+  </div>
+
+
+  <div class="section-inner">
+
+    <div class="dashboard-grid">
+
+      <div class="stat-card">
+        <small>Total Appointments</small>
+        <strong id="totalAppointments">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Today's Appointments</small>
+        <strong id="todayAppointments">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Pending</small>
+        <strong id="pendingAppointments">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <small>Completed</small>
+        <strong id="completedAppointments">0</strong>
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-table">
+
+      <h3 style="margin-bottom:20px;">
+        Recent Appointments
+      </h3>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Owner</th>
+            <th>Pet</th>
+            <th>Service</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="appointmentTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      <strong>🐾 Pet Grooming Studio</strong>
+
+      <p>
+        Professional pet grooming and care
+        with smart AI-powered assistance.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <p>📧 emanfatima3664@gmail.com</p>
+      <p>📱 03247779398</p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    © 2026 Pet Grooming Studio. All rights reserved.
+
+  </div>
+
+</footer>
+
+
+<!-- FLOATING AI BUTTONS -->
+
+<div class="ai-floating">
+
+  <button
+    class="ai-float-btn chat-float"
+    title="AI Chat"
+    onclick="openAgent('chat')">
+
+    💬
+
+  </button>
+
+
+  <button
+    class="ai-float-btn voice-float"
+    title="AI Voice"
+    onclick="openAgent('voice')">
+
+    🎙️
+
+  </button>
+
+</div>
+
+
+<!-- AI MODAL -->
+
+<div class="modal" id="agentModal">
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeAgent()">
+
+      ×
+
+    </button>
+
+    <div
+      class="modal-icon"
+      id="modalIcon">
+
+      💬
+
+    </div>
+
+    <h3 id="modalTitle">
+      AI Chat Assistant
+    </h3>
+
+    <p id="modalDescription">
+      Your AI assistant will appear here.
+    </p>
+
+
+    <div
+      class="agent-placeholder"
+      id="agentContainer">
+
+      AI Agent connection ready.<br><br>
+
+      <strong>
+        Connect your Chat Agent / Voice Agent here.
+      </strong>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   INTEGRATION SETTINGS
+   Add your real URLs / IDs here later.
+   ===================================================== */
+
+const CONFIG = {
+
+  // n8n appointment webhook
+  N8N_APPOINTMENT_WEBHOOK:
+    "",
+
+  // ElevenLabs Voice Agent ID
+  ELEVENLABS_AGENT_ID:
+    "",
+
+  // Chat Agent URL / widget
+  CHAT_AGENT_URL:
+    "",
+
+  // WhatsApp integration
+  WHATSAPP_NUMBER:
+    "03247779398"
+
+};
+
+
+/* =====================================================
+   APPOINTMENTS
+   ===================================================== */
+
+let appointments =
+  JSON.parse(
+    localStorage.getItem("petAppointments")
+  ) || [];
+
+
+function renderDashboard(){
+
+  document.getElementById(
+    "totalAppointments"
+  ).textContent = appointments.length;
+
+
+  document.getElementById(
+    "pendingAppointments"
+  ).textContent =
+    appointments.filter(
+      a => a.status === "Pending"
+    ).length;
+
+
+  document.getElementById(
+    "completedAppointments"
+  ).textContent =
+    appointments.filter(
+      a => a.status === "Completed"
+    ).length;
+
+
+  const today =
+    new Date().toISOString().split("T")[0];
+
+
+  document.getElementById(
+    "todayAppointments"
+  ).textContent =
+    appointments.filter(
+      a => a.date === today
+    ).length;
+
+
+  const table =
+    document.getElementById(
+      "appointmentTable"
+    );
+
+
+  table.innerHTML = "";
+
+
+  if(appointments.length === 0){
+
+    table.innerHTML = `
+      <tr>
+        <td colspan="6"
+            style="text-align:center;color:#999;">
+          No appointments yet.
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  appointments.slice().reverse().forEach(a => {
+
+    const row =
+      document.createElement("tr");
+
+
+    row.innerHTML = `
+
+      <td>${a.owner}</td>
+
+      <td>${a.pet}</td>
+
+      <td>${a.service}</td>
+
+      <td>${a.date}</td>
+
+      <td>${a.time}</td>
+
+      <td>
+        <span class="status">
+          ${a.status}
+        </span>
+      </td>
+
+    `;
+
+
+    table.appendChild(row);
+
+  });
+
+}
+
+
+/* =====================================================
+   BOOKING
+   ===================================================== */
+
+document
+.getElementById("bookingForm")
+.addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
+
+
+    const appointment = {
+
+      owner:
+        document.getElementById(
+          "ownerName"
+        ).value,
+
+      phone:
+        document.getElementById(
+          "phone"
+        ).value,
+
+      pet:
+        document.getElementById(
+          "petName"
+        ).value,
+
+      petType:
+        document.getElementById(
+          "petType"
+        ).value,
+
+      service:
+        document.getElementById(
+          "service"
+        ).value,
+
+      date:
+        document.getElementById(
+          "date"
+        ).value,
+
+      time:
+        document.getElementById(
+          "time"
+        ).value,
+
+      notes:
+        document.getElementById(
+          "notes"
+        ).value,
+
+      status:
+        "Pending",
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    /* Local demo storage */
+
+    appointments.push(
+      appointment
+    );
+
+
+    localStorage.setItem(
+      "petAppointments",
+      JSON.stringify(appointments)
+    );
+
+
+    /* n8n connection */
+
+    if(
+      CONFIG.N8N_APPOINTMENT_WEBHOOK
+    ){
+
+      try{
+
+        await fetch(
+          CONFIG.N8N_APPOINTMENT_WEBHOOK,
+          {
+            method:"POST",
+
+            headers:{
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify(
+                appointment
+              )
+          }
+        );
+
+      }catch(error){
+
+        console.log(
+          "n8n webhook error:",
+          error
+        );
+
+      }
+
+    }
+
+
+    alert(
+      "Your appointment request has been submitted successfully! 🐾"
+    );
+
+
+    this.reset();
+
+    renderDashboard();
+
+
+    document
+      .getElementById("dashboard")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  }
+);
+
+
+/* =====================================================
+   AI AGENTS
+   ===================================================== */
+
+function openAgent(type){
+
+  const modal =
+    document.getElementById(
+      "agentModal"
+    );
+
+  const title =
+    document.getElementById(
+      "modalTitle"
+    );
+
+  const description =
+    document.getElementById(
+      "modalDescription"
+    );
+
+  const icon =
+    document.getElementById(
+      "modalIcon"
+    );
+
+  const container =
+    document.getElementById(
+      "agentContainer"
+    );
+
+
+  if(type === "voice"){
+
+    icon.textContent = "🎙️";
+
+    title.textContent =
+      "AI Voice Assistant";
+
+    description.textContent =
+      "Talk naturally with our AI pet care assistant.";
+
+    if(
+      CONFIG.ELEVENLABS_AGENT_ID
+    ){
+
+      container.innerHTML = `
+        <div>
+          ElevenLabs Voice Agent connected.
+          <br><br>
+          <strong>
+            Agent ID:
+          </strong>
+          ${CONFIG.ELEVENLABS_AGENT_ID}
+        </div>
+      `;
+
+    }else{
+
+      container.innerHTML = `
+        🎙️ Voice Agent is ready for connection.
+        <br><br>
+        Add your ElevenLabs Agent ID in
+        <strong>CONFIG</strong>.
+      `;
+
+    }
+
+  }else{
+
+    icon.textContent = "💬";
+
+    title.textContent =
+      "AI Chat Assistant";
+
+    description.textContent =
+      "Ask about services, hours and appointments.";
+
+    if(
+      CONFIG.CHAT_AGENT_URL
+    ){
+
+      container.innerHTML = `
+        <iframe
+          src="${CONFIG.CHAT_AGENT_URL}"
+          style="
+            width:100%;
+            height:350px;
+            border:0;
+            border-radius:12px;
+          ">
+        </iframe>
+      `;
+
+    }else{
+
+      container.innerHTML = `
+        💬 Chat Agent is ready for connection.
+        <br><br>
+        Add your Chat Agent URL in
+        <strong>CONFIG</strong>.
+      `;
+
+    }
+
+  }
+
+
+  modal.classList.add("active");
+
+}
+
+
+function closeAgent(){
+
+  document
+    .getElementById(
+      "agentModal"
+    )
+    .classList.remove(
+      "active"
+    );
+
+}
+
+
+document
+.getElementById("agentModal")
+.addEventListener(
+  "click",
+  function(e){
+
+    if(e.target === this){
+
+      closeAgent();
+
+    }
+
+  }
+);
+
+
+/* Initial dashboard */
+
+renderDashboard();
+
+</script>
+
+</body>
+</html>
