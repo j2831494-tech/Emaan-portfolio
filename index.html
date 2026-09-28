@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Pet Grooming Studio | Professional Pet Care</title>
 
 <style>
 :root{
-  --primary:#d9673c;
-  --primary-dark:#b94f29;
-  --cream:#fff8f3;
-  --cream2:#fdf0e8;
-  --dark:#241b18;
-  --text:#493d38;
-  --muted:#81746e;
-  --white:#ffffff;
-  --border:#eaded7;
-  --green:#2f9e6f;
-  --shadow:0 20px 60px rgba(67,42,30,.10);
+  --orange:#d9683d;
+  --orange-dark:#bd512d;
+  --cream:#fbf5ef;
+  --cream-light:#fffaf6;
+  --dark:#211b18;
+  --text:#514640;
+  --muted:#81756e;
+  --white:#fff;
+  --border:#eaded5;
+  --shadow:0 18px 55px rgba(55,35,25,.10);
 }
 
 *{
@@ -32,10 +30,17 @@ html{
 }
 
 body{
-  font-family:Inter,Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
-  background:#fff;
-  line-height:1.6;
+  background:var(--cream-light);
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 a{
@@ -43,14 +48,7 @@ a{
   color:inherit;
 }
 
-button,
-input,
-select,
-textarea{
-  font:inherit;
-}
-
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar{
   position:sticky;
@@ -58,13 +56,13 @@ textarea{
   z-index:1000;
   background:rgba(255,255,255,.94);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(234,222,215,.8);
+  border-bottom:1px solid #eee4dd;
 }
 
 .nav-inner{
   max-width:1250px;
   margin:auto;
-  padding:17px 28px;
+  padding:15px 28px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -77,189 +75,236 @@ textarea{
 }
 
 .logo-icon{
-  width:47px;
-  height:47px;
+  width:48px;
+  height:48px;
   border-radius:15px;
-  background:var(--primary);
+  background:var(--orange);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:25px;
   color:#fff;
-  box-shadow:0 8px 22px rgba(217,103,60,.25);
+  font-size:25px;
 }
 
 .logo-text strong{
   display:block;
-  font-size:18px;
+  font-family:Georgia,serif;
+  font-size:20px;
   color:var(--dark);
 }
 
 .logo-text span{
   font-size:11px;
-  color:var(--muted);
+  color:#8c817b;
 }
 
 .nav-links{
   display:flex;
-  gap:28px;
   align-items:center;
+  gap:27px;
 }
 
 .nav-links a{
   font-size:14px;
   font-weight:600;
-  color:#554943;
 }
 
 .nav-links a:hover{
-  color:var(--primary);
+  color:var(--orange);
 }
 
-.nav-book{
-  padding:11px 19px;
-  background:var(--primary);
+.book-btn{
+  background:var(--orange);
   color:#fff !important;
+  padding:12px 20px;
   border-radius:10px;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  background:
-    radial-gradient(circle at 80% 20%,rgba(217,103,60,.12),transparent 28%),
-    linear-gradient(135deg,#fffaf7,#fff0e8);
-  min-height:680px;
-  display:flex;
-  align-items:center;
+  background:var(--cream);
+  overflow:hidden;
 }
 
 .hero-inner{
-  width:min(1250px,92%);
+  max-width:1250px;
   margin:auto;
+  min-height:670px;
+  padding:70px 28px 35px;
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:70px;
+  grid-template-columns:.95fr 1.05fr;
+  gap:35px;
   align-items:center;
-  padding:85px 0;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
 }
 
 .badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:#fff;
-  border:1px solid var(--border);
-  padding:8px 13px;
-  border-radius:50px;
-  color:var(--primary);
+  display:inline-block;
+  padding:9px 15px;
+  border:1px solid #efc9b7;
+  border-radius:30px;
+  color:var(--orange);
+  background:#fff9f5;
   font-size:12px;
   font-weight:700;
   margin-bottom:22px;
 }
 
 .hero h1{
+  font-family:Georgia,serif;
   font-size:64px;
-  line-height:1.04;
+  line-height:1.03;
   letter-spacing:-2px;
   color:var(--dark);
-  margin-bottom:24px;
+  margin-bottom:22px;
 }
 
-.hero h1 span{
-  color:var(--primary);
+.hero h1 em{
+  color:var(--orange);
+  font-style:italic;
 }
 
-.hero-description{
-  max-width:590px;
-  font-size:18px;
+.hero p{
+  font-size:17px;
+  line-height:1.7;
   color:var(--muted);
-  margin-bottom:30px;
+  max-width:570px;
+  margin-bottom:27px;
 }
 
 .hero-buttons{
   display:flex;
-  gap:13px;
+  gap:12px;
   flex-wrap:wrap;
 }
 
 .primary-btn,
-.secondary-btn{
-  border:none;
-  cursor:pointer;
-  padding:14px 22px;
-  border-radius:12px;
+.outline-btn{
+  padding:14px 21px;
+  border-radius:11px;
   font-weight:700;
-  transition:.2s;
+  border:none;
 }
 
 .primary-btn{
-  background:var(--primary);
+  background:var(--orange);
   color:#fff;
-  box-shadow:0 10px 25px rgba(217,103,60,.22);
+  box-shadow:0 10px 25px rgba(217,104,61,.20);
 }
 
 .primary-btn:hover{
-  background:var(--primary-dark);
-  transform:translateY(-2px);
+  background:var(--orange-dark);
 }
 
-.secondary-btn{
+.outline-btn{
   background:#fff;
   color:var(--dark);
   border:1px solid var(--border);
 }
 
-.secondary-btn:hover{
-  border-color:var(--primary);
-  color:var(--primary);
+.outline-btn:hover{
+  color:var(--orange);
+  border-color:var(--orange);
 }
 
-.hero-visual{
-  min-height:440px;
+/* HERO PHOTO */
+
+.hero-photo{
+  height:500px;
+  border-radius:35px;
+  overflow:hidden;
   position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.pet-card{
-  width:410px;
-  height:430px;
-  border-radius:38px;
-  background:linear-gradient(145deg,#e67b4d,#c9582f);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:180px;
-  box-shadow:0 35px 80px rgba(164,70,35,.24);
-  transform:rotate(2deg);
-}
-
-.float-card{
-  position:absolute;
-  background:#fff;
-  padding:15px 18px;
-  border-radius:16px;
   box-shadow:var(--shadow);
+  background:#ddd;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(255,248,242,.05),
+    transparent
+  );
+}
+
+.hours-badge{
+  position:absolute;
+  right:20px;
+  top:20px;
+  z-index:2;
+  background:rgba(255,255,255,.94);
+  padding:17px 20px;
+  border-radius:17px;
+  box-shadow:var(--shadow);
+}
+
+.hours-badge strong{
+  display:block;
+  color:var(--dark);
+  margin-bottom:4px;
+}
+
+.hours-badge span{
   font-size:13px;
-  font-weight:700;
+  color:var(--muted);
 }
 
-.float-card.one{
-  top:35px;
-  left:5px;
+/* ================= STATS ================= */
+
+.stats{
+  max-width:1180px;
+  margin:-20px auto 0;
+  position:relative;
+  z-index:5;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  padding:0 20px;
 }
 
-.float-card.two{
-  bottom:35px;
-  right:5px;
+.stat{
+  background:rgba(255,255,255,.94);
+  border:1px solid #eee1d8;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 12px 35px rgba(50,30,20,.07);
 }
 
-/* SECTIONS */
+.stat-icon{
+  color:var(--orange);
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.stat strong{
+  display:block;
+  font-family:Georgia,serif;
+  color:var(--dark);
+  font-size:28px;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ================= SECTIONS ================= */
 
 .section{
-  padding:95px 20px;
+  padding:95px 22px;
 }
 
 .section-inner{
@@ -267,42 +312,53 @@ textarea{
   margin:auto;
 }
 
-.section-heading{
+.section-title{
   text-align:center;
-  max-width:680px;
-  margin:0 auto 50px;
+  max-width:700px;
+  margin:0 auto 48px;
 }
 
-.section-heading small{
-  color:var(--primary);
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:2px;
+.section-label{
+  display:inline-block;
+  color:var(--orange);
+  border:1px solid #efc9b7;
+  border-radius:30px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:14px;
 }
 
-.section-heading h2{
-  font-size:42px;
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:45px;
   color:var(--dark);
-  margin:10px 0;
+  line-height:1.1;
 }
 
-.section-heading p{
+.section-title p{
+  margin-top:14px;
   color:var(--muted);
+  line-height:1.7;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 .services{
+  background:#fff;
+}
+
+.service-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:20px;
 }
 
 .service-card{
-  padding:32px;
   background:#fff;
   border:1px solid var(--border);
   border-radius:22px;
+  overflow:hidden;
   transition:.25s;
 }
 
@@ -311,104 +367,278 @@ textarea{
   box-shadow:var(--shadow);
 }
 
-.service-icon{
-  width:55px;
-  height:55px;
+.service-image{
+  height:190px;
+  overflow:hidden;
+}
+
+.service-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.service-content{
+  padding:24px;
+}
+
+.service-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:flex-start;
+}
+
+.service-content h3{
+  font-family:Georgia,serif;
+  font-size:22px;
+  color:var(--dark);
+}
+
+.price{
+  color:var(--orange);
+  font-family:Georgia,serif;
+  font-size:20px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.service-content p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  margin:10px 0 18px;
+}
+
+.service-time{
+  color:#786b65;
+  font-size:13px;
+}
+
+/* ================= STORY ================= */
+
+.story{
+  background:#f8f1ea;
+}
+
+.story-grid{
+  max-width:1180px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.story-images{
+  position:relative;
+  min-height:520px;
+}
+
+.story-main{
+  position:absolute;
+  left:0;
+  top:0;
+  width:78%;
+  height:400px;
+  border-radius:28px;
+  overflow:hidden;
+}
+
+.story-main img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.story-small{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:55%;
+  height:270px;
+  border:9px solid #f8f1ea;
+  border-radius:27px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.story-small img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.story-content .section-label{
+  margin-bottom:18px;
+}
+
+.story-content h2{
+  font-family:Georgia,serif;
+  font-size:50px;
+  color:var(--dark);
+  line-height:1.08;
+}
+
+.story-content h2 em{
+  color:var(--orange);
+}
+
+.story-content p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:22px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:30px;
+}
+
+.feature{
+  display:flex;
+  gap:12px;
+}
+
+.feature-icon{
+  min-width:45px;
+  height:45px;
+  border-radius:13px;
+  background:#f6e4d8;
+  color:var(--orange);
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:16px;
-  background:var(--cream2);
-  font-size:27px;
-  margin-bottom:20px;
+  font-size:20px;
 }
 
-.service-card h3{
+.feature strong{
   color:var(--dark);
-  margin-bottom:8px;
+  font-family:Georgia,serif;
 }
 
-.service-card p{
-  color:var(--muted);
-  font-size:14px;
+.feature p{
+  margin-top:3px;
+  font-size:13px;
+  line-height:1.5;
 }
 
-/* HOURS */
+/* ================= GALLERY ================= */
+
+.gallery{
+  background:#fff;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.4fr .7fr .7fr;
+  grid-template-rows:240px 240px;
+  gap:15px;
+}
+
+.gallery-item{
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.05);
+}
+
+.gallery-large{
+  grid-row:1/3;
+}
+
+/* ================= HOURS ================= */
 
 .hours-section{
   background:var(--dark);
   color:white;
 }
 
-.hours-box{
-  max-width:900px;
+.hours-section .section-title h2{
+  color:white;
+}
+
+.hours-section .section-title p{
+  color:#b9ada6;
+}
+
+.hours-grid{
+  max-width:850px;
   margin:auto;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:20px;
 }
 
 .hours-card{
-  padding:32px;
-  border:1px solid rgba(255,255,255,.12);
+  padding:30px;
   border-radius:22px;
-  background:rgba(255,255,255,.05);
-}
-
-.hours-card h3{
-  margin-bottom:18px;
+  background:#302723;
+  border:1px solid rgba(255,255,255,.08);
 }
 
 .hours-row{
   display:flex;
   justify-content:space-between;
-  padding:12px 0;
+  padding:13px 0;
   border-bottom:1px solid rgba(255,255,255,.08);
   font-size:14px;
 }
 
 .closed{
-  color:#ff9a75;
-  font-weight:700;
+  color:#ef8662;
+  font-weight:bold;
 }
 
-/* BOOKING */
+/* ================= BOOKING ================= */
 
-.booking-section{
-  background:var(--cream);
+.booking{
+  background:#fff8f3;
 }
 
-.booking-layout{
+.booking-grid{
   max-width:1050px;
   margin:auto;
   display:grid;
   grid-template-columns:.75fr 1.25fr;
-  gap:30px;
+  gap:25px;
 }
 
 .booking-info{
   background:var(--dark);
-  color:white;
+  color:#fff;
   border-radius:25px;
   padding:35px;
 }
 
 .booking-info h3{
-  font-size:28px;
+  font-family:Georgia,serif;
+  font-size:30px;
   margin-bottom:15px;
 }
 
 .booking-info p{
-  color:#cfc4be;
-  font-size:14px;
-  margin-bottom:25px;
+  color:#c6b9b1;
+  line-height:1.7;
 }
 
-.contact-line{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin:16px 0;
+.contact{
+  margin-top:25px;
+}
+
+.contact div{
+  margin:14px 0;
   font-size:14px;
 }
 
@@ -437,15 +667,13 @@ textarea{
 
 .form-group label{
   font-size:12px;
-  font-weight:700;
-  color:#655851;
+  font-weight:bold;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-  width:100%;
-  padding:13px 14px;
+  padding:13px;
   border:1px solid var(--border);
   border-radius:10px;
   outline:none;
@@ -455,130 +683,229 @@ textarea{
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
-  border-color:var(--primary);
+  border-color:var(--orange);
 }
 
 .form-submit{
-  margin-top:20px;
   width:100%;
+  margin-top:20px;
 }
 
-/* AI AGENTS */
+/* ================= AI ================= */
 
-.ai-section{
+.ai-area{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:2000;
+}
+
+.ai-main-btn{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  border:none;
+  background:var(--orange);
+  color:#fff;
+  font-size:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.ai-modal{
+  display:none;
+  position:fixed;
+  right:25px;
+  bottom:95px;
+  width:370px;
+  height:570px;
   background:#fff;
+  border-radius:22px;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+  overflow:hidden;
+  z-index:2100;
 }
 
-.ai-cards{
+.ai-modal.active{
+  display:block;
+}
+
+.ai-header{
+  height:80px;
+  background:var(--orange);
+  color:#fff;
+  padding:17px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.ai-title{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.ai-avatar{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.ai-title strong{
+  display:block;
+  font-family:Georgia,serif;
+}
+
+.ai-title small{
+  opacity:.85;
+}
+
+.ai-close{
+  border:none;
+  background:none;
+  color:white;
+  font-size:24px;
+}
+
+.ai-tabs{
+  height:55px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
-  max-width:900px;
-  margin:auto;
+  border-bottom:1px solid #eee;
 }
 
-.ai-card{
+.ai-tab{
+  border:none;
+  background:white;
+  color:#777;
+  font-weight:bold;
+}
+
+.ai-tab.active{
+  color:var(--orange);
+  border-bottom:2px solid var(--orange);
+}
+
+.ai-body{
+  height:435px;
+  display:flex;
+  flex-direction:column;
+}
+
+.ai-content{
+  display:none;
+  height:100%;
+  flex-direction:column;
+}
+
+.ai-content.active{
+  display:flex;
+}
+
+.chat-messages{
+  flex:1;
+  padding:18px;
+}
+
+.message{
+  background:#fff8f3;
+  border:1px solid #f0ded3;
+  padding:13px;
+  border-radius:14px;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.quick-buttons{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  padding:10px 15px;
+}
+
+.quick-buttons button{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:8px 11px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+.chat-input{
+  padding:12px;
+  border-top:1px solid #eee;
+  display:flex;
+  gap:8px;
+}
+
+.chat-input input{
+  flex:1;
+  padding:12px;
   border:1px solid var(--border);
   border-radius:25px;
-  padding:35px;
-  background:linear-gradient(145deg,#fff,#fff7f2);
-  text-align:center;
+  outline:none;
 }
 
-.ai-card-icon{
-  width:75px;
-  height:75px;
-  border-radius:22px;
-  background:var(--primary);
+.send-btn{
+  width:43px;
+  height:43px;
+  border:none;
+  border-radius:50%;
+  background:var(--orange);
+  color:#fff;
+}
+
+.voice-content{
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+}
+
+.voice-circle{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:var(--orange);
   color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 20px;
-  font-size:34px;
-}
-
-.ai-card h3{
-  color:var(--dark);
-  margin-bottom:8px;
-}
-
-.ai-card p{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-/* DASHBOARD */
-
-.dashboard-section{
-  background:#f7f3f0;
-}
-
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  font-size:45px;
   margin-bottom:25px;
+  box-shadow:0 15px 35px rgba(217,104,61,.25);
 }
 
-.stat-card{
-  background:#fff;
-  border-radius:18px;
-  padding:23px;
-  border:1px solid var(--border);
+.voice-content h3{
+  font-family:Georgia,serif;
+  color:var(--dark);
 }
 
-.stat-card small{
+.voice-content p{
   color:var(--muted);
-}
-
-.stat-card strong{
-  display:block;
-  font-size:30px;
-  color:var(--primary);
-  margin-top:6px;
-}
-
-.dashboard-table{
-  background:#fff;
-  padding:25px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  overflow:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-th,td{
-  padding:14px;
-  text-align:left;
-  border-bottom:1px solid #eee;
   font-size:13px;
+  margin:10px 0 20px;
 }
 
-th{
-  color:var(--primary);
+.voice-status{
+  padding:10px 16px;
+  background:#f7f1ed;
+  border-radius:20px;
+  font-size:12px;
+  color:#777;
 }
 
-.status{
-  background:#e9f7f0;
-  color:var(--green);
-  padding:5px 10px;
-  border-radius:30px;
-  font-size:11px;
-  font-weight:700;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-  background:#1b1512;
-  color:#d8cfca;
-  padding:50px 20px 25px;
+  background:#1d1714;
+  color:#fff;
+  padding:50px 25px 25px;
 }
 
 .footer-inner{
@@ -587,133 +914,36 @@ footer{
   display:flex;
   justify-content:space-between;
   gap:30px;
-  flex-wrap:wrap;
 }
 
 .footer-brand strong{
-  color:white;
-  font-size:20px;
+  font-family:Georgia,serif;
+  font-size:22px;
 }
 
 .footer-brand p{
   max-width:350px;
-  margin-top:8px;
+  color:#a99b93;
   font-size:13px;
-  color:#9e928c;
+  margin-top:8px;
+}
+
+.footer-contact{
+  color:#cfc3bc;
+  font-size:14px;
+  line-height:2;
 }
 
 .footer-bottom{
   max-width:1180px;
-  margin:35px auto 0;
+  margin:30px auto 0;
   padding-top:20px;
   border-top:1px solid rgba(255,255,255,.1);
+  color:#81746d;
   font-size:12px;
-  color:#82756f;
 }
 
-/* FLOATING AI */
-
-.ai-floating{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:900;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.ai-float-btn{
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  border:none;
-  color:white;
-  cursor:pointer;
-  font-size:23px;
-  box-shadow:0 12px 30px rgba(0,0,0,.2);
-}
-
-.chat-float{
-  background:#27201c;
-}
-
-.voice-float{
-  background:var(--primary);
-}
-
-/* MODAL */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(20,14,11,.65);
-  backdrop-filter:blur(5px);
-  z-index:2000;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal.active{
-  display:flex;
-}
-
-.modal-box{
-  width:min(480px,100%);
-  background:#fff;
-  border-radius:25px;
-  padding:30px;
-  position:relative;
-  box-shadow:0 30px 90px rgba(0,0,0,.3);
-}
-
-.modal-close{
-  position:absolute;
-  right:18px;
-  top:15px;
-  border:none;
-  background:none;
-  font-size:25px;
-  cursor:pointer;
-  color:#777;
-}
-
-.modal-icon{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  background:var(--cream2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  margin-bottom:18px;
-}
-
-.modal-box h3{
-  color:var(--dark);
-  margin-bottom:8px;
-}
-
-.modal-box p{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-.agent-placeholder{
-  background:#f8f5f3;
-  border:1px dashed #d9c8bf;
-  border-radius:15px;
-  padding:25px;
-  text-align:center;
-  color:#777;
-  font-size:13px;
-}
-
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -723,67 +953,78 @@ footer{
 
   .hero-inner{
     grid-template-columns:1fr;
-    text-align:center;
+    padding-top:50px;
   }
 
   .hero h1{
-    font-size:46px;
+    font-size:48px;
   }
 
-  .hero-description{
-    margin-left:auto;
-    margin-right:auto;
+  .hero-photo{
+    height:400px;
   }
 
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .pet-card{
-    width:300px;
-    height:320px;
-    font-size:125px;
-  }
-
-  .services{
-    grid-template-columns:1fr;
-  }
-
-  .hours-box,
-  .booking-layout,
-  .ai-cards{
-    grid-template-columns:1fr;
-  }
-
-  .dashboard-grid{
+  .stats{
     grid-template-columns:1fr 1fr;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+  }
+
+  .story-images{
+    min-height:420px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:250px 250px;
+  }
+
+  .gallery-large{
+    grid-row:auto;
+  }
+
+  .hours-grid,
+  .booking-grid{
+    grid-template-columns:1fr;
   }
 }
 
 @media(max-width:600px){
 
-  .nav-inner{
-    padding:13px 18px;
-  }
-
-  .logo-text strong{
-    font-size:15px;
-  }
-
-  .hero-inner{
-    padding:60px 0;
-  }
-
   .hero h1{
     font-size:40px;
   }
 
-  .section{
-    padding:70px 18px;
+  .hero-inner{
+    padding-left:18px;
+    padding-right:18px;
   }
 
-  .section-heading h2{
-    font-size:34px;
+  .stats{
+    grid-template-columns:1fr 1fr;
+    padding:0 12px;
+  }
+
+  .stat{
+    padding:15px;
+  }
+
+  .stat strong{
+    font-size:23px;
+  }
+
+  .section{
+    padding:70px 17px;
+  }
+
+  .section-title h2{
+    font-size:35px;
   }
 
   .form-grid{
@@ -794,12 +1035,14 @@ footer{
     grid-column:auto;
   }
 
-  .dashboard-grid{
-    grid-template-columns:1fr 1fr;
+  .ai-modal{
+    width:calc(100% - 25px);
+    right:12px;
+    bottom:85px;
   }
 
-  .float-card{
-    display:none;
+  .footer-inner{
+    flex-direction:column;
   }
 }
 </style>
@@ -807,1134 +1050,995 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
-  <div class="nav-inner">
+<div class="nav-inner">
 
-    <a href="#home" class="logo">
-      <div class="logo-icon">🐾</div>
+<a href="#home" class="logo">
+<div class="logo-icon">🐾</div>
+<div class="logo-text">
+<strong>Pet Grooming Studio</strong>
+<span>Professional Pet Care</span>
+</div>
+</a>
 
-      <div class="logo-text">
-        <strong>Pet Grooming Studio</strong>
-        <span>Professional Pet Care</span>
-      </div>
-    </a>
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#story">Our Story</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Book</a>
+<a href="#ai">AI Assistant</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#booking" class="book-btn">Book Now</a>
+</nav>
 
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#hours">Hours</a>
-      <a href="#booking">Book</a>
-      <a href="#ai">AI Assistant</a>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#booking" class="nav-book">Book Now</a>
-    </nav>
-
-  </div>
+</div>
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-  <div class="hero-inner">
+<div class="hero-inner">
 
-    <div>
+<div class="hero-content">
 
-      <div class="badge">
-        🐾 Professional Pet Care
-      </div>
+<div class="badge">
+🐾 Professional Pet Care
+</div>
 
-      <h1>
-        Care They Love.<br>
-        <span>Grooming They Deserve.</span>
-      </h1>
+<h1>
+Care They Love.<br>
+<em>Grooming They Deserve.</em>
+</h1>
 
-      <p class="hero-description">
-        Professional grooming and pet care services designed
-        to keep your furry companions healthy, comfortable
-        and looking their best.
-      </p>
+<p>
+Professional grooming and pet care services designed
+to keep your furry companions healthy, comfortable
+and looking their best.
+</p>
 
-      <div class="hero-buttons">
+<div class="hero-buttons">
 
-        <a href="#booking" class="primary-btn">
-          Book an Appointment
-        </a>
+<a href="#booking" class="primary-btn">
+📅 Book an Appointment
+</a>
 
-        <button
-          class="secondary-btn"
-          onclick="openAgent('chat')">
-          💬 Chat with AI
-        </button>
+<button
+class="outline-btn"
+onclick="openAI()">
+✨ AI Assistant
+</button>
 
-        <button
-          class="secondary-btn"
-          onclick="openAgent('voice')">
-          🎙️ Voice Assistant
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-      <div class="float-card one">
-        ⭐ Trusted Pet Care
-      </div>
-
-      <div class="pet-card">
-        🐶
-      </div>
-
-      <div class="float-card two">
-        🕐 Mon–Fri · 6 AM–10 PM
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section class="section" id="services">
-
-  <div class="section-heading">
-
-    <small>Our Services</small>
-
-    <h2>Professional Care For Every Pet</h2>
-
-    <p>
-      From everyday grooming to complete spa care,
-      we make every visit comfortable and stress-free.
-    </p>
-
-  </div>
-
-
-  <div class="section-inner services">
-
-    <div class="service-card">
-
-      <div class="service-icon">✂️</div>
-
-      <h3>Full Grooming</h3>
-
-      <p>
-        Complete grooming including haircut,
-        brushing, bath and finishing.
-      </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-      <div class="service-icon">🛁</div>
-
-      <h3>Bath & Spa</h3>
-
-      <p>
-        Gentle bathing and spa care for a
-        fresh, clean and healthy coat.
-      </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-      <div class="service-icon">🐾</div>
-
-      <h3>Nail & Paw Care</h3>
-
-      <p>
-        Professional nail trimming and paw
-        care for your pet's comfort.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- HOURS -->
-
-<section class="section hours-section" id="hours">
-
-  <div class="section-heading">
-
-    <small style="color:#ff9a75;">
-      Opening Hours
-    </small>
-
-    <h2 style="color:white;">
-      We're Here For Your Pets
-    </h2>
-
-    <p style="color:#bfb2ac;">
-      Our studio is open Monday through Friday.
-    </p>
-
-  </div>
-
-
-  <div class="hours-box">
-
-    <div class="hours-card">
-
-      <h3>🕐 Weekly Schedule</h3>
-
-      <div class="hours-row">
-        <span>Monday</span>
-        <strong>6:00 AM – 10:00 PM</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Tuesday</span>
-        <strong>6:00 AM – 10:00 PM</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Wednesday</span>
-        <strong>6:00 AM – 10:00 PM</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Thursday</span>
-        <strong>6:00 AM – 10:00 PM</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Friday</span>
-        <strong>6:00 AM – 10:00 PM</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Saturday</span>
-        <strong class="closed">Closed</strong>
-      </div>
-
-      <div class="hours-row">
-        <span>Sunday</span>
-        <strong class="closed">Closed</strong>
-      </div>
-
-    </div>
-
-
-    <div class="hours-card">
-
-      <h3>📞 Contact Us</h3>
-
-      <div class="contact-line">
-        <span>👩</span>
-        <span>Eman Fatima</span>
-      </div>
-
-      <div class="contact-line">
-        <span>📧</span>
-        <a href="mailto:emanfatima3664@gmail.com">
-          emanfatima3664@gmail.com
-        </a>
-      </div>
-
-      <div class="contact-line">
-        <span>📱</span>
-        <a href="tel:03247779398">
-          03247779398
-        </a>
-      </div>
-
-      <p style="margin-top:22px;color:#bfb2ac;font-size:13px;">
-        For appointments and general enquiries,
-        contact us during business hours.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- BOOKING -->
-
-<section class="section booking-section" id="booking">
-
-  <div class="section-heading">
-
-    <small>Appointments</small>
-
-    <h2>Book Your Pet's Visit</h2>
-
-    <p>
-      Fill in the details below and we'll take care
-      of the rest.
-    </p>
-
-  </div>
-
-
-  <div class="booking-layout">
-
-    <div class="booking-info">
-
-      <h3>Let's take care of your best friend. 🐾</h3>
-
-      <p>
-        Choose your preferred service, date and time.
-        Our team will confirm your appointment.
-      </p>
-
-      <div class="contact-line">
-        📧 emanfatima3664@gmail.com
-      </div>
-
-      <div class="contact-line">
-        📱 03247779398
-      </div>
-
-      <div class="contact-line">
-        🕐 Mon–Fri · 6 AM–10 PM
-      </div>
-
-      <div class="contact-line">
-        🚫 Sat–Sun · Closed
-      </div>
-
-    </div>
-
-
-    <div class="booking-form">
-
-      <form id="bookingForm">
-
-        <div class="form-grid">
-
-          <div class="form-group">
-            <label>Owner Name</label>
-            <input
-              id="ownerName"
-              type="text"
-              placeholder="Your name"
-              required>
-          </div>
-
-
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input
-              id="phone"
-              type="tel"
-              placeholder="03XXXXXXXXX"
-              required>
-          </div>
-
-
-          <div class="form-group">
-            <label>Pet Name</label>
-            <input
-              id="petName"
-              type="text"
-              placeholder="Your pet's name"
-              required>
-          </div>
-
-
-          <div class="form-group">
-            <label>Pet Type</label>
-
-            <select id="petType" required>
-              <option value="">Select</option>
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Other</option>
-            </select>
-
-          </div>
-
-
-          <div class="form-group full">
-            <label>Service</label>
-
-            <select id="service" required>
-
-              <option value="">
-                Select a service
-              </option>
-
-              <option>
-                Full Grooming
-              </option>
-
-              <option>
-                Bath & Spa
-              </option>
-
-              <option>
-                Nail & Paw Care
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-group">
-            <label>Preferred Date</label>
-
-            <input
-              id="date"
-              type="date"
-              required>
-
-          </div>
-
-
-          <div class="form-group">
-            <label>Preferred Time</label>
-
-            <select id="time" required>
-
-              <option value="">
-                Select time
-              </option>
-
-              <option>6:00 AM</option>
-              <option>7:00 AM</option>
-              <option>8:00 AM</option>
-              <option>9:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>1:00 PM</option>
-              <option>2:00 PM</option>
-              <option>3:00 PM</option>
-              <option>4:00 PM</option>
-              <option>5:00 PM</option>
-              <option>6:00 PM</option>
-              <option>7:00 PM</option>
-              <option>8:00 PM</option>
-              <option>9:00 PM</option>
-              <option>10:00 PM</option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-group full">
-
-            <label>Additional Notes</label>
-
-            <textarea
-              id="notes"
-              rows="3"
-              placeholder="Anything we should know about your pet?"></textarea>
-
-          </div>
-
-        </div>
-
-
-        <button
-          type="submit"
-          class="primary-btn form-submit">
-
-          Request Appointment
-
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- AI AGENTS -->
-
-<section class="section ai-section" id="ai">
-
-  <div class="section-heading">
-
-    <small>AI Assistance</small>
-
-    <h2>Meet Your Pet Care Assistant</h2>
-
-    <p>
-      Get instant answers or talk naturally with
-      our AI assistant.
-    </p>
-
-  </div>
-
-
-  <div class="ai-cards">
-
-    <div class="ai-card">
-
-      <div class="ai-card-icon">
-        💬
-      </div>
-
-      <h3>AI Chat Assistant</h3>
-
-      <p>
-        Ask about services, opening hours,
-        appointments and pet care.
-      </p>
-
-      <button
-        class="primary-btn"
-        onclick="openAgent('chat')">
-
-        Open Chat Agent
-
-      </button>
-
-    </div>
-
-
-    <div class="ai-card">
-
-      <div class="ai-card-icon">
-        🎙️
-      </div>
-
-      <h3>AI Voice Assistant</h3>
-
-      <p>
-        Talk naturally with our voice assistant
-        about services and appointments.
-      </p>
-
-      <button
-        class="primary-btn"
-        onclick="openAgent('voice')">
-
-        Open Voice Agent
-
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- DASHBOARD -->
-
-<section class="section dashboard-section" id="dashboard">
-
-  <div class="section-heading">
-
-    <small>Management</small>
-
-    <h2>Admin Dashboard</h2>
-
-    <p>
-      Appointment and customer management will
-      be connected to the backend automation.
-    </p>
-
-  </div>
-
-
-  <div class="section-inner">
-
-    <div class="dashboard-grid">
-
-      <div class="stat-card">
-        <small>Total Appointments</small>
-        <strong id="totalAppointments">0</strong>
-      </div>
-
-      <div class="stat-card">
-        <small>Today's Appointments</small>
-        <strong id="todayAppointments">0</strong>
-      </div>
-
-      <div class="stat-card">
-        <small>Pending</small>
-        <strong id="pendingAppointments">0</strong>
-      </div>
-
-      <div class="stat-card">
-        <small>Completed</small>
-        <strong id="completedAppointments">0</strong>
-      </div>
-
-    </div>
-
-
-    <div class="dashboard-table">
-
-      <h3 style="margin-bottom:20px;">
-        Recent Appointments
-      </h3>
-
-      <table>
-
-        <thead>
-          <tr>
-            <th>Owner</th>
-            <th>Pet</th>
-            <th>Service</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody id="appointmentTable">
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-
-      <strong>🐾 Pet Grooming Studio</strong>
-
-      <p>
-        Professional pet grooming and care
-        with smart AI-powered assistance.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <p>📧 emanfatima3664@gmail.com</p>
-      <p>📱 03247779398</p>
-
-    </div>
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    © 2026 Pet Grooming Studio. All rights reserved.
-
-  </div>
-
-</footer>
-
-
-<!-- FLOATING AI BUTTONS -->
-
-<div class="ai-floating">
-
-  <button
-    class="ai-float-btn chat-float"
-    title="AI Chat"
-    onclick="openAgent('chat')">
-
-    💬
-
-  </button>
-
-
-  <button
-    class="ai-float-btn voice-float"
-    title="AI Voice"
-    onclick="openAgent('voice')">
-
-    🎙️
-
-  </button>
+</div>
 
 </div>
 
 
-<!-- AI MODAL -->
+<div class="hero-photo">
 
-<div class="modal" id="agentModal">
+<img
+src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1200&q=85"
+alt="Professional dog grooming">
 
-  <div class="modal-box">
+<div class="hours-badge">
 
-    <button
-      class="modal-close"
-      onclick="closeAgent()">
+<strong>🕐 Mon – Fri</strong>
+<span>6:00 AM – 10:00 PM</span>
 
-      ×
+<br><br>
 
-    </button>
+<strong>Saturday & Sunday</strong>
+<span>Closed</span>
 
-    <div
-      class="modal-icon"
-      id="modalIcon">
+</div>
 
-      💬
+</div>
 
-    </div>
+</div>
 
-    <h3 id="modalTitle">
-      AI Chat Assistant
-    </h3>
-
-    <p id="modalDescription">
-      Your AI assistant will appear here.
-    </p>
+</section>
 
 
-    <div
-      class="agent-placeholder"
-      id="agentContainer">
+<!-- ================= STATS ================= -->
 
-      AI Agent connection ready.<br><br>
+<div class="stats">
 
-      <strong>
-        Connect your Chat Agent / Voice Agent here.
-      </strong>
+<div class="stat">
+<div class="stat-icon">🐾</div>
+<strong>2,500+</strong>
+<span>Pets Groomed</span>
+</div>
 
-    </div>
+<div class="stat">
+<div class="stat-icon">★</div>
+<strong>4.9</strong>
+<span>Rating</span>
+</div>
 
-  </div>
+<div class="stat">
+<div class="stat-icon">♙</div>
+<strong>10+</strong>
+<span>Experienced Staff</span>
+</div>
+
+<div class="stat">
+<div class="stat-icon">⌖</div>
+<strong>3</strong>
+<span>Cities</span>
+</div>
+
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section services" id="services">
+
+<div class="section-title">
+
+<div class="section-label">
+Our Services
+</div>
+
+<h2>Everything Your Pet Needs</h2>
+
+<p>
+Professional grooming services with gentle,
+personalized care.
+</p>
+
+</div>
+
+
+<div class="section-inner service-grid">
+
+<div class="service-card">
+
+<div class="service-image">
+<img
+src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=85"
+alt="Dog grooming">
+</div>
+
+<div class="service-content">
+
+<div class="service-top">
+<h3>Full Grooming</h3>
+<div class="price">$45</div>
+</div>
+
+<p>
+Complete grooming including haircut,
+brushing, bath and finishing.
+</p>
+
+<div class="service-time">
+◷ 60–90 min
+</div>
+
+</div>
+</div>
+
+
+<div class="service-card">
+
+<div class="service-image">
+<img
+src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=85"
+alt="Happy dog">
+</div>
+
+<div class="service-content">
+
+<div class="service-top">
+<h3>Bath & Spa</h3>
+<div class="price">$30</div>
+</div>
+
+<p>
+Gentle bathing and spa care for a fresh,
+clean and healthy coat.
+</p>
+
+<div class="service-time">
+◷ 45 min
+</div>
+
+</div>
+</div>
+
+
+<div class="service-card">
+
+<div class="service-image">
+<img
+src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=900&q=85"
+alt="Pet care">
+</div>
+
+<div class="service-content">
+
+<div class="service-top">
+<h3>Nail & Paw Care</h3>
+<div class="price">$15</div>
+</div>
+
+<p>
+Professional nail trimming and paw care
+for your pet's comfort.
+</p>
+
+<div class="service-time">
+◷ 20 min
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="section story" id="story">
+
+<div class="story-grid">
+
+<div class="story-images">
+
+<div class="story-main">
+<img
+src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1000&q=85"
+alt="Dog grooming">
+</div>
+
+<div class="story-small">
+<img
+src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=85"
+alt="Happy pet">
+</div>
+
+</div>
+
+
+<div class="story-content">
+
+<div class="section-label">
+✦ Our Story
+</div>
+
+<h2>
+A Passion for Pets,<br>
+<em>Built on Trust</em>
+</h2>
+
+<p>
+Pet Grooming Studio is dedicated to providing
+exceptional grooming services for dogs and cats.
+Our goal is simple — create a calm, comfortable
+experience where every pet receives personalized care.
+</p>
+
+<p>
+Our team believes grooming is more than just a service.
+It's an experience that should leave your pet feeling
+happy, healthy and beautiful.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+<div class="feature-icon">✂</div>
+<div>
+<strong>Certified Groomers</strong>
+<p>Professional and careful pet care.</p>
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">♡</div>
+<div>
+<strong>Stress-Free</strong>
+<p>A calm environment for pets.</p>
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">♢</div>
+<div>
+<strong>Premium Products</strong>
+<p>Gentle and pet-safe products.</p>
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">$</div>
+<div>
+<strong>Transparent Pricing</strong>
+<p>Clear pricing with no hidden fees.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="section gallery" id="gallery">
+
+<div class="section-title">
+
+<div class="section-label">
+Our Gallery
+</div>
+
+<h2>Happy Pets, Beautiful Results</h2>
+
+<p>
+A glimpse into the care and attention we give
+to every pet.
+</p>
+
+</div>
+
+
+<div class="section-inner gallery-grid">
+
+<div class="gallery-item gallery-large">
+<img
+src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=85"
+alt="Happy dog">
+</div>
+
+<div class="gallery-item">
+<img
+src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=85"
+alt="Pet">
+</div>
+
+<div class="gallery-item">
+<img
+src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=85"
+alt="Dogs">
+</div>
+
+<div class="gallery-item">
+<img
+src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=85"
+alt="Dog grooming">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= HOURS ================= -->
+
+<section class="section hours-section" id="hours">
+
+<div class="section-title">
+
+<div class="section-label">
+Opening Hours
+</div>
+
+<h2>We're Here For Your Pets</h2>
+
+<p>
+Visit us Monday through Friday.
+</p>
+
+</div>
+
+
+<div class="hours-grid">
+
+<div class="hours-card">
+
+<div class="hours-row">
+<span>Monday</span>
+<strong>6:00 AM – 10:00 PM</strong>
+</div>
+
+<div class="hours-row">
+<span>Tuesday</span>
+<strong>6:00 AM – 10:00 PM</strong>
+</div>
+
+<div class="hours-row">
+<span>Wednesday</span>
+<strong>6:00 AM – 10:00 PM</strong>
+</div>
+
+<div class="hours-row">
+<span>Thursday</span>
+<strong>6:00 AM – 10:00 PM</strong>
+</div>
+
+<div class="hours-row">
+<span>Friday</span>
+<strong>6:00 AM – 10:00 PM</strong>
+</div>
+
+<div class="hours-row">
+<span>Saturday</span>
+<strong class="closed">Closed</strong>
+</div>
+
+<div class="hours-row">
+<span>Sunday</span>
+<strong class="closed">Closed</strong>
+</div>
+
+</div>
+
+
+<div class="hours-card">
+
+<h3>Contact Pet Grooming Studio</h3>
+
+<br>
+
+<div class="hours-row">
+<span>👩 Owner</span>
+<strong>Eman Fatima</strong>
+</div>
+
+<div class="hours-row">
+<span>📧 Email</span>
+<strong>emanfatima3664@gmail.com</strong>
+</div>
+
+<div class="hours-row">
+<span>📱 Phone</span>
+<strong>03247779398</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="section booking" id="booking">
+
+<div class="section-title">
+
+<div class="section-label">
+Appointments
+</div>
+
+<h2>Book Your Pet's Visit</h2>
+
+<p>
+Choose your service, date and preferred time.
+</p>
+
+</div>
+
+
+<div class="booking-grid">
+
+<div class="booking-info">
+
+<h3>
+Let's take care of your best friend. 🐾
+</h3>
+
+<p>
+Complete the form and our team will receive
+your appointment request.
+</p>
+
+<div class="contact">
+
+<div>📧 emanfatima3664@gmail.com</div>
+<div>📱 03247779398</div>
+<div>🕐 Mon–Fri · 6 AM–10 PM</div>
+<div>🚫 Saturday & Sunday · Closed</div>
+
+</div>
+
+</div>
+
+
+<div class="booking-form">
+
+<form id="bookingForm">
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Owner Name</label>
+<input id="owner" required placeholder="Your name">
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input id="phone" required placeholder="03XXXXXXXXX">
+</div>
+
+<div class="form-group">
+<label>Pet Name</label>
+<input id="pet" required placeholder="Pet name">
+</div>
+
+<div class="form-group">
+<label>Pet Type</label>
+<select id="petType" required>
+<option value="">Select</option>
+<option>Dog</option>
+<option>Cat</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group full">
+<label>Service</label>
+<select id="service" required>
+<option value="">Select service</option>
+<option>Full Grooming - $45</option>
+<option>Bath & Spa - $30</option>
+<option>Nail & Paw Care - $15</option>
+<option>Ear Cleaning - $15</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Date</label>
+<input id="date" type="date" required>
+</div>
+
+<div class="form-group">
+<label>Time</label>
+<select id="time" required>
+<option value="">Select time</option>
+<option>6:00 AM</option>
+<option>7:00 AM</option>
+<option>8:00 AM</option>
+<option>9:00 AM</option>
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+<option>12:00 PM</option>
+<option>1:00 PM</option>
+<option>2:00 PM</option>
+<option>3:00 PM</option>
+<option>4:00 PM</option>
+<option>5:00 PM</option>
+<option>6:00 PM</option>
+<option>7:00 PM</option>
+<option>8:00 PM</option>
+<option>9:00 PM</option>
+<option>10:00 PM</option>
+</select>
+</div>
+
+<div class="form-group full">
+<label>Additional Notes</label>
+<textarea id="notes" rows="3"
+placeholder="Tell us anything important about your pet"></textarea>
+</div>
+
+</div>
+
+<button class="primary-btn form-submit">
+Request Appointment
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+<strong>🐾 Pet Grooming Studio</strong>
+<p>
+Professional pet grooming and care with
+smart AI-powered assistance.
+</p>
+</div>
+
+<div class="footer-contact">
+📧 emanfatima3664@gmail.com<br>
+📱 03247779398<br>
+🕐 Mon–Fri · 6 AM–10 PM
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Pet Grooming Studio. All rights reserved.
+</div>
+
+</footer>
+
+
+<!-- ================= AI ASSISTANT BUTTON ================= -->
+
+<div class="ai-area">
+
+<button
+class="ai-main-btn"
+onclick="openAI()"
+title="AI Assistant">
+✨
+</button>
+
+</div>
+
+
+<!-- ================= AI MODAL ================= -->
+
+<div class="ai-modal" id="aiModal">
+
+<div class="ai-header">
+
+<div class="ai-title">
+
+<div class="ai-avatar">✦</div>
+
+<div>
+<strong>Pet Grooming Assistant</strong>
+<small>Online · Ready to help</small>
+</div>
+
+</div>
+
+<button
+class="ai-close"
+onclick="closeAI()">
+×
+</button>
+
+</div>
+
+
+<div class="ai-tabs">
+
+<button
+class="ai-tab active"
+id="chatTab"
+onclick="showChat()">
+💬 Chat
+</button>
+
+<button
+class="ai-tab"
+id="voiceTab"
+onclick="showVoice()">
+🎙️ Voice
+</button>
+
+</div>
+
+
+<div class="ai-body">
+
+<!-- CHAT -->
+
+<div class="ai-content active" id="chatContent">
+
+<div class="chat-messages">
+
+<div class="message">
+Hi there! I'm your Pet Grooming Studio
+assistant. How can I help you and your
+furry friend today?
+</div>
+
+</div>
+
+<div class="quick-buttons">
+
+<button>📅 Book appointment</button>
+<button>✂ Ask about services</button>
+<button>◷ Business hours</button>
+<button>⌖ Location</button>
+
+</div>
+
+<div class="chat-input">
+
+<input
+id="chatInput"
+placeholder="Type your message...">
+
+<button
+class="send-btn"
+onclick="sendChat()">
+➤
+</button>
+
+</div>
+
+</div>
+
+
+<!-- VOICE -->
+
+<div class="ai-content voice-content" id="voiceContent">
+
+<div class="voice-circle">
+🎙️
+</div>
+
+<h3>Voice Assistant</h3>
+
+<p>
+Talk to our AI assistant about services,
+business hours or booking an appointment.
+</p>
+
+<button
+class="primary-btn"
+onclick="startVoice()">
+Start Voice Conversation
+</button>
+
+<div class="voice-status" id="voiceStatus">
+Voice assistant ready
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   INTEGRATION SETTINGS
-   Add your real URLs / IDs here later.
-   ===================================================== */
+/* ================= CONFIGURATION ================= */
 
 const CONFIG = {
 
-  // n8n appointment webhook
-  N8N_APPOINTMENT_WEBHOOK:
-    "",
+  /* Add your n8n webhook later */
+  N8N_APPOINTMENT_WEBHOOK:"",
 
-  // ElevenLabs Voice Agent ID
-  ELEVENLABS_AGENT_ID:
-    "",
+  /* Add ElevenLabs Agent ID later */
+  ELEVENLABS_AGENT_ID:"",
 
-  // Chat Agent URL / widget
-  CHAT_AGENT_URL:
-    "",
-
-  // WhatsApp integration
-  WHATSAPP_NUMBER:
-    "03247779398"
+  /* Add Chat Agent URL later */
+  CHAT_AGENT_URL:""
 
 };
 
 
-/* =====================================================
-   APPOINTMENTS
-   ===================================================== */
+/* ================= AI MODAL ================= */
 
-let appointments =
-  JSON.parse(
-    localStorage.getItem("petAppointments")
-  ) || [];
+function openAI(){
 
+  document
+  .getElementById("aiModal")
+  .classList.add("active");
 
-function renderDashboard(){
+}
 
-  document.getElementById(
-    "totalAppointments"
-  ).textContent = appointments.length;
+function closeAI(){
 
+  document
+  .getElementById("aiModal")
+  .classList.remove("active");
 
-  document.getElementById(
-    "pendingAppointments"
-  ).textContent =
-    appointments.filter(
-      a => a.status === "Pending"
-    ).length;
+}
 
+function showChat(){
 
-  document.getElementById(
-    "completedAppointments"
-  ).textContent =
-    appointments.filter(
-      a => a.status === "Completed"
-    ).length;
+  document
+  .getElementById("chatContent")
+  .classList.add("active");
 
+  document
+  .getElementById("voiceContent")
+  .classList.remove("active");
 
-  const today =
-    new Date().toISOString().split("T")[0];
+  document
+  .getElementById("chatTab")
+  .classList.add("active");
 
+  document
+  .getElementById("voiceTab")
+  .classList.remove("active");
 
-  document.getElementById(
-    "todayAppointments"
-  ).textContent =
-    appointments.filter(
-      a => a.date === today
-    ).length;
+}
 
+function showVoice(){
 
-  const table =
-    document.getElementById(
-      "appointmentTable"
-    );
+  document
+  .getElementById("voiceContent")
+  .classList.add("active");
 
+  document
+  .getElementById("chatContent")
+  .classList.remove("active");
 
-  table.innerHTML = "";
+  document
+  .getElementById("voiceTab")
+  .classList.add("active");
 
-
-  if(appointments.length === 0){
-
-    table.innerHTML = `
-      <tr>
-        <td colspan="6"
-            style="text-align:center;color:#999;">
-          No appointments yet.
-        </td>
-      </tr>
-    `;
-
-    return;
-  }
-
-
-  appointments.slice().reverse().forEach(a => {
-
-    const row =
-      document.createElement("tr");
-
-
-    row.innerHTML = `
-
-      <td>${a.owner}</td>
-
-      <td>${a.pet}</td>
-
-      <td>${a.service}</td>
-
-      <td>${a.date}</td>
-
-      <td>${a.time}</td>
-
-      <td>
-        <span class="status">
-          ${a.status}
-        </span>
-      </td>
-
-    `;
-
-
-    table.appendChild(row);
-
-  });
+  document
+  .getElementById("chatTab")
+  .classList.remove("active");
 
 }
 
 
-/* =====================================================
-   BOOKING
-   ===================================================== */
+/* ================= CHAT ================= */
+
+function sendChat(){
+
+  const input =
+    document.getElementById("chatInput");
+
+  if(!input.value.trim()) return;
+
+  alert(
+    "Chat Agent will be connected here next."
+  );
+
+  input.value="";
+
+}
+
+
+/* ================= VOICE ================= */
+
+function startVoice(){
+
+  const status =
+    document.getElementById("voiceStatus");
+
+  if(CONFIG.ELEVENLABS_AGENT_ID){
+
+    status.textContent =
+      "ElevenLabs Voice Agent connected.";
+
+  }else{
+
+    status.textContent =
+      "Voice Agent is ready for connection.";
+
+  }
+
+}
+
+
+/* ================= BOOKING ================= */
 
 document
 .getElementById("bookingForm")
 .addEventListener(
-  "submit",
-  async function(e){
+"submit",
+async function(e){
 
-    e.preventDefault();
+  e.preventDefault();
 
+  const appointment = {
 
-    const appointment = {
+    owner:
+      document.getElementById("owner").value,
 
-      owner:
-        document.getElementById(
-          "ownerName"
-        ).value,
+    phone:
+      document.getElementById("phone").value,
 
-      phone:
-        document.getElementById(
-          "phone"
-        ).value,
+    pet:
+      document.getElementById("pet").value,
 
-      pet:
-        document.getElementById(
-          "petName"
-        ).value,
+    petType:
+      document.getElementById("petType").value,
 
-      petType:
-        document.getElementById(
-          "petType"
-        ).value,
+    service:
+      document.getElementById("service").value,
 
-      service:
-        document.getElementById(
-          "service"
-        ).value,
+    date:
+      document.getElementById("date").value,
 
-      date:
-        document.getElementById(
-          "date"
-        ).value,
+    time:
+      document.getElementById("time").value,
 
-      time:
-        document.getElementById(
-          "time"
-        ).value,
+    notes:
+      document.getElementById("notes").value,
 
-      notes:
-        document.getElementById(
-          "notes"
-        ).value,
+    status:"Pending",
 
-      status:
-        "Pending",
+    createdAt:
+      new Date().toISOString()
 
-      createdAt:
-        new Date().toISOString()
+  };
 
-    };
 
+  /* Save locally for now */
 
-    /* Local demo storage */
+  let appointments =
+    JSON.parse(
+      localStorage.getItem("appointments")
+    ) || [];
 
-    appointments.push(
-      appointment
-    );
+  appointments.push(appointment);
 
+  localStorage.setItem(
+    "appointments",
+    JSON.stringify(appointments)
+  );
 
-    localStorage.setItem(
-      "petAppointments",
-      JSON.stringify(appointments)
-    );
 
+  /* Send to n8n when webhook is added */
 
-    /* n8n connection */
+  if(CONFIG.N8N_APPOINTMENT_WEBHOOK){
 
-    if(
-      CONFIG.N8N_APPOINTMENT_WEBHOOK
-    ){
+    try{
 
-      try{
+      await fetch(
+        CONFIG.N8N_APPOINTMENT_WEBHOOK,
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:
+            JSON.stringify(appointment)
+        }
+      );
 
-        await fetch(
-          CONFIG.N8N_APPOINTMENT_WEBHOOK,
-          {
-            method:"POST",
+    }catch(error){
 
-            headers:{
-              "Content-Type":
-                "application/json"
-            },
-
-            body:
-              JSON.stringify(
-                appointment
-              )
-          }
-        );
-
-      }catch(error){
-
-        console.log(
-          "n8n webhook error:",
-          error
-        );
-
-      }
-
-    }
-
-
-    alert(
-      "Your appointment request has been submitted successfully! 🐾"
-    );
-
-
-    this.reset();
-
-    renderDashboard();
-
-
-    document
-      .getElementById("dashboard")
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  }
-);
-
-
-/* =====================================================
-   AI AGENTS
-   ===================================================== */
-
-function openAgent(type){
-
-  const modal =
-    document.getElementById(
-      "agentModal"
-    );
-
-  const title =
-    document.getElementById(
-      "modalTitle"
-    );
-
-  const description =
-    document.getElementById(
-      "modalDescription"
-    );
-
-  const icon =
-    document.getElementById(
-      "modalIcon"
-    );
-
-  const container =
-    document.getElementById(
-      "agentContainer"
-    );
-
-
-  if(type === "voice"){
-
-    icon.textContent = "🎙️";
-
-    title.textContent =
-      "AI Voice Assistant";
-
-    description.textContent =
-      "Talk naturally with our AI pet care assistant.";
-
-    if(
-      CONFIG.ELEVENLABS_AGENT_ID
-    ){
-
-      container.innerHTML = `
-        <div>
-          ElevenLabs Voice Agent connected.
-          <br><br>
-          <strong>
-            Agent ID:
-          </strong>
-          ${CONFIG.ELEVENLABS_AGENT_ID}
-        </div>
-      `;
-
-    }else{
-
-      container.innerHTML = `
-        🎙️ Voice Agent is ready for connection.
-        <br><br>
-        Add your ElevenLabs Agent ID in
-        <strong>CONFIG</strong>.
-      `;
-
-    }
-
-  }else{
-
-    icon.textContent = "💬";
-
-    title.textContent =
-      "AI Chat Assistant";
-
-    description.textContent =
-      "Ask about services, hours and appointments.";
-
-    if(
-      CONFIG.CHAT_AGENT_URL
-    ){
-
-      container.innerHTML = `
-        <iframe
-          src="${CONFIG.CHAT_AGENT_URL}"
-          style="
-            width:100%;
-            height:350px;
-            border:0;
-            border-radius:12px;
-          ">
-        </iframe>
-      `;
-
-    }else{
-
-      container.innerHTML = `
-        💬 Chat Agent is ready for connection.
-        <br><br>
-        Add your Chat Agent URL in
-        <strong>CONFIG</strong>.
-      `;
+      console.log(error);
 
     }
 
   }
 
 
-  modal.classList.add("active");
+  alert(
+    "Appointment request submitted successfully! 🐾"
+  );
 
-}
+  this.reset();
+
+});
 
 
-function closeAgent(){
-
-  document
-    .getElementById(
-      "agentModal"
-    )
-    .classList.remove(
-      "active"
-    );
-
-}
-
+/* Close modal when clicking outside */
 
 document
-.getElementById("agentModal")
+.getElementById("aiModal")
 .addEventListener(
-  "click",
-  function(e){
+"click",
+function(e){
 
-    if(e.target === this){
-
-      closeAgent();
-
-    }
-
+  if(e.target === this){
+    closeAI();
   }
-);
 
-
-/* Initial dashboard */
-
-renderDashboard();
+});
 
 </script>
 
